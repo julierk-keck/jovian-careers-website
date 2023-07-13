@@ -2,51 +2,23 @@
 <html>
   <head>
     <title>Jovian Careers Tutorial Page</title>
-    <!-- To change webpage icon, save a 16x16 ico file in your static directory as favicon.ico and use the following html:  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">  -->
-    <style>
-      h1 {
-        font-size: 40px;
-        font-family: Roboto;
-        font-weight: normal;
-        color: rgb(100,100,100);
-        text-align: center;
-      }
-      #banner {
-        width: 100%;
-        height: 360px;
-        object-fit: cover;
-      }
-      h2 {
-        font-size: 32px;
-        font-family: Roboto;
-        color: rgb(100,100,100);
-        text-align: center;
-      }
-      p {
-        font-family: Roboto;
-        color: rgb(80,80,80);
-      }
-   
-      #container {
-        max-width: 720px;
-        margin: 0 auto 0 auto;
-      }
-    </style>
-       <!-- above is how to specify style of an object with id 'container'.  There should be only one object with this id.  margin uses 4 args top left bottom right.  Saying auto means it will split the difference -->
+   {% include 'header.html' %}
   </head>
   <body>
     <div id=container>
     <h1>{{company_name}} Careers</h1>
-    <img id=banner src="static/abed-ismail-eclipseBanner-unsplash.jpg">
+    <img id=banner src="/static/abed-ismail-eclipseBanner-unsplash.jpg">
     <h2>About</h2>
     <p>lorem ipsum text generated because I don't want to have to type a lot except I am typing a lot anyways.  lorem ipsum lbkhekhlkdaf kdhfwekfj dfhflaf dhflkadgf dlkfhakflk sdhfaefhlkd fehoi ehf hfha helifihel heion eh fhi hdfoi hdhfoi afhoid hfdhl hfalhfh</p>
     <h2>Open Positions</h2>
+      
     <div>
-     {% for job in jobs %}
+      {% for job in jobs %}
       <div>
         <h4>{{job['title']}}</h4>
         <div><b>Location:</b> {{job['location']}}</div>
-      </div
+        <a href="/jobs/{{job['id']}}" type=button>Apply</a>
+      </div>
       {% endfor %}
  
     </div>
